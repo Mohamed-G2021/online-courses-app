@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:online_courses_project/providers/courses_list_provider.dart';
 import 'package:online_courses_project/ui/widgets/course_card.dart';
+import 'package:provider/provider.dart';
 import '../data/course_model.dart';
 
 class CoursesList extends StatelessWidget {
   List<Course>? coursesList;
+  CoursesListProvider? provider;
 
-  CoursesList(this.coursesList);
+  CoursesList();
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<CoursesListProvider>(context);
+
+    if (provider!.state == ListScreenState.initial) {
+      provider!.getCourses();
+      return Container(
+        color: Colors.white,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    } else {
+      coursesList = provider!.coursesList;
+    }
+
     return _buildCoursesScreen();
   }
 

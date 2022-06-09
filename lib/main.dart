@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:online_courses_project/data/course_model.dart';
 import 'package:online_courses_project/data/courses_api.dart';
+import 'package:online_courses_project/providers/courses_list_provider.dart';
 import 'package:online_courses_project/ui/list_courses.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
-  CoursesAPI().getCourses();
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<CoursesListProvider>(
+          create: (_) => CoursesListProvider())
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -18,11 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     // TODO: implement initState
-    CoursesAPI().getCourses().then((value) {
-      setState(() {
-        courses = value;
-      });
-    });
+    super.initState();
   }
 
   @override
@@ -34,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'Cairo',
       ),
-      home: CoursesList(courses),
+      home: CoursesList(),
     );
   }
 }

@@ -5,9 +5,9 @@ import '../data/course_model.dart';
 class CoursesList extends StatelessWidget {
   List<Course>? coursesList;
 
+  CoursesList(this.coursesList);
   @override
   Widget build(BuildContext context) {
-    coursesList = _buildDummyCoursesList();
     return _buildCoursesScreen();
   }
 
@@ -55,30 +55,30 @@ class CoursesList extends StatelessWidget {
     );
   }
 
-  _buildDummyCoursesList() {
-    coursesList = [];
-    coursesList!.add(Course(
-      id: 100,
-      image:
-          'https://cdn3.f-cdn.com/contestentries/1112912/26228964/599ac11baba88_thumb900.jpg',
-      title: 'Youtube Marketing | التسويق الرقمي',
-      description: 'Learn the best practices in Youtube Marketing',
-    ));
-    coursesList!.add(Course(
-      id: 200,
-      image: 'https://hackr.io/blog/best-java-courses/thumbnail/large',
-      title: 'Introduction to Java | مقدمة فى الجافا',
-      description:
-          'Description Introduction to Java Description Introduction to Java Description Introduction to Java',
-    ));
-    coursesList!.add(Course(
-      id: 300,
-      image:
-          'https://5.imimg.com/data5/QD/VX/MY-61372866/flutter-application-development-500x500.png',
-      title: 'Mobile Development With Flutter | تطوير التطبيقات باستخدام فلاتر',
-      description: 'This course is a mobile development With Flutter',
-    ));
+  // _buildDummyCoursesList() {
+  //   coursesList = [];
+  //   coursesList!.add(Course(
+  //     id: 100,
+  //     image:
+  //         'https://cdn3.f-cdn.com/contestentries/1112912/26228964/599ac11baba88_thumb900.jpg',
+  //     title: 'Youtube Marketing | التسويق الرقمي',
+  //     description: 'Learn the best practices in Youtube Marketing',
+  //   ));
+  //   coursesList!.add(Course(
+  //     id: 200,
+  //     image: 'https://hackr.io/blog/best-java-courses/thumbnail/large',
+  //     title: 'Introduction to Java | مقدمة فى الجافا',
+  //     description:
+  //         'Description Introduction to Java Description Introduction to Java Description Introduction to Java',
+  //   ));
+  //   coursesList!.add(Course(
+  //     id: 300,
+  //     image:
+  //         'https://5.imimg.com/data5/QD/VX/MY-61372866/flutter-application-development-500x500.png',
+  //     title: 'Mobile Development With Flutter | تطوير التطبيقات باستخدام فلاتر',
+  //     description: 'This course is a mobile development With Flutter',
+  //   ));
 
-    return coursesList;
-  }
+  //   return coursesList;
+  // }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_courses_project/data/course_model.dart';
 import 'package:online_courses_project/data/courses_api.dart';
 import 'package:online_courses_project/providers/courses_list_provider.dart';
+import 'package:online_courses_project/ui/course_details.dart';
 import 'package:online_courses_project/ui/list_courses.dart';
 import 'package:provider/provider.dart';
 
@@ -31,13 +32,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        CoursesList.routeName: (context) => CoursesList(),
+        CourseDetails.routeName: (context) => CourseDetails(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Dev School',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Cairo',
       ),
-      home: CoursesList(),
+      // home: CoursesList(),
     );
   }
 }

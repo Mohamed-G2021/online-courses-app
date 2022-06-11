@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../data/course_model.dart';
 
 class CoursesList extends StatelessWidget {
+  static const routeName = '/';
   List<Course>? coursesList;
   CoursesListProvider? provider;
 
